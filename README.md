@@ -1,6 +1,7 @@
 # Puzzle
 
-##CHallenge 1
+##Challenge 1:
+
 Create a command line program that reads from a file and solves the following problem through simulation: 
 You have a certain number lightbulbs each with a different colour. The number of light bulbs is determined by an input file. The program should randomly pick the number of the lightbulbs specified by the last line in the file and determine the number of unique colours drawn. Extend the simulation to determine the expected number of unique colours in this scenario (in other words, the average output of the simulation).
 Requirements:
