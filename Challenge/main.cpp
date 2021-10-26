@@ -60,18 +60,18 @@ double RandomDraw(int range){
     int NoOfDrawnBulb[range];
     double Sum = 0;
     srand(time(0));
-    
+
     for (int i=0; i<=range;i++){
         NoOfDrawnBulb[i]=0;
     }
     cout << "-----Drawing time:-----" << endl;
     for (int i = 1; i <= DrawnTimes; i++){
         Result = (rand() % range );
-    //cout << "Bulb color " << bulb[Result].color << " is Drawn" << endl;
-    if (bulb[Result].number > 0){
+        //cout << "Bulb color " << bulb[Result].color << " is Drawn" << endl;
+        if (bulb[Result].number > 0){
             NoOfDrawnBulb[Result]++;
             bulb[Result].number--;
-           // cout << bulb[Result].color <<" ** " << bulb[Result].number<<" left " << endl;
+            // cout << bulb[Result].color <<" ** " << bulb[Result].number<<" left " << endl;
         }
         else{
             DrawnTimes++;
@@ -83,12 +83,9 @@ double RandomDraw(int range){
     }
     sort(NoOfDrawnBulb,NoOfDrawnBulb+range);
     for (int i = 0; i < range; i++){
-        while(i < range  && NoOfDrawnBulb[i] == NoOfDrawnBulb[i+1]){
-            //if(NoOfDrawnBulb[i] !=0)
+        while(i < range  && NoOfDrawnBulb[i] == NoOfDrawnBulb[i+1])
             i++;
-        }
         cout << "Unique numbers --" << NoOfDrawnBulb[i]<<endl;
-        //int numb = NoOfDrawnBulb[i];
         ncolor = Colordrawn(NoOfDrawnBulb[i]);
         Sum += NoOfDrawnBulb[i]; 
     }
@@ -105,7 +102,6 @@ int Colordrawn(int numb){
 }
 
 int main(int argc, char* argv[]){
-
     string file = argv[1];
     int iter =1;
     int iterations = stoi(argv[2]);
@@ -120,6 +116,7 @@ int main(int argc, char* argv[]){
         return -1;
     }
 
+
     while(iter < iterations){
         NumberOfColor = 0;
         loadfile.open(file);
@@ -129,6 +126,6 @@ int main(int argc, char* argv[]){
         loadfile.close();
     }
     cout << "******\nExpected Number after running: "<<iterations 
-    << " is: " << TUniqueNumber/iterations << endl;
+    << " simulations is: " << TUniqueNumber/iterations << endl;
     return 0;
 }
